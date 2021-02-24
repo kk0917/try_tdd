@@ -1,0 +1,16 @@
+name: lint - Scala
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TriPSs/conventional-changelog-action@v3
+        name: Conventional Changelog Action
