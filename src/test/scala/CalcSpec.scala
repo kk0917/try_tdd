@@ -1,10 +1,9 @@
-import org.scalatest.{DiagrammedAssertions, FlatSpec}
+import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.concurrent.TimeLimits.failAfter
-import org.scalatest.mockito.MockitoSugar
 import org.scalatest.time.SpanSugar._
-import org.mockito.Mockito.when
+import org.mockito.Mockito.{mock, when}
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
+class CalcSpec extends AnyFlatSpec {
   val calc = new Calc
 
   "Calc.sum function" should "fetch integers array, and can return sum them all." in {
@@ -42,7 +41,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
   }
 
   "Calc Mock's object" should "Be able to camouflage behaviours" in {
-    val mockCalc = mock[Calc]
+    val mockCalc = mock(classOf[Calc])
     when(mockCalc.sum(Seq(3, 4, 5))).thenReturn(12)
     assert(mockCalc.sum(Seq(3, 4, 5)) === 12)
   }
@@ -67,13 +66,13 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
    * [info] Resolved  dependencies
    * [info] Fetching artifacts of
    * [info] Fetched artifacts of
-   * [info] compiling 1 Scala source to /Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/classes ...
-   * [info] [info] Cleaning datadir [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/scoverage-data]
+   * [info] compiling 1 Scala source to /Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/classes ...
+   * [info] [info] Cleaning datadir [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/scoverage-data]
    * [info] [info] Beginning coverage instrumentation
    * [info] [info] Instrumentation completed [18 statements]
-   * [info] [info] Wrote instrumentation file [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/scoverage-data/scoverage.coverage.xml]
-   * [info] [info] Will write measurement data to [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/scoverage-data]
-   * [info] compiling 1 Scala source to /Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/test-classes ...
+   * [info] [info] Wrote instrumentation file [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/scoverage-data/scoverage.coverage.xml]
+   * [info] [info] Will write measurement data to [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/scoverage-data]
+   * [info] compiling 1 Scala source to /Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/test-classes ...
    * [info] CalcSpec:
    * [info] Calc.sum function
    * [info] - should fetch integers array, and can return sum them all.
@@ -103,12 +102,12 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
    * [info] loading settings for project scalatest from build.sbt ...
    * [info] set current project to ScalaTest (in build file:/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/)
    * [info] Waiting for measurement data to sync...
-   * [info] Reading scoverage instrumentation [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/scoverage-data/scoverage.coverage.xml]
+   * [info] Reading scoverage instrumentation [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/scoverage-data/scoverage.coverage.xml]
    * [info] Reading scoverage measurements...
    * [info] Generating scoverage reports...
-   * [info] Written Cobertura report [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/coverage-report/cobertura.xml]
-   * [info] Written XML coverage report [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/scoverage-report/scoverage.xml]
-   * [info] Written HTML coverage report [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/scala-2.12/scoverage-report/index.html]
+   * [info] Written Cobertura report [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/coverage-report/cobertura.xml]
+   * [info] Written XML coverage report [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/scoverage-report/scoverage.xml]
+   * [info] Written HTML coverage report [/Users/ko-kamenashi/Desktop/Samples/Scala/N予備校/workspace/ScalaTest/target/moneySpec-2.12/scoverage-report/index.html]
    * [info] Statement coverage.: 100.00%
    * [info] Branch coverage....: 100.00%
    * [info] Coverage reports completed
