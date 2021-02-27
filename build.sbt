@@ -6,7 +6,7 @@ ThisBuild / scalaVersion := "2.13.1"
 
 lazy val root = (project in file(".")).
   settings(
-    name := "try_tdd",
+    name := "try_tdd_with_scala",
     libraryDependencies ++= Seq(
       "org.scalactic" %% "scalactic"          % "3.2.2",
       "org.scalatest" %% "scalatest"          % "3.2.2"  % Test,
