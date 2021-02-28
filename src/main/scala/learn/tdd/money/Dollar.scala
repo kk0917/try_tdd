@@ -1,11 +1,10 @@
 package learn.tdd.money
 
-class Dollar(var sum: Int) {
-  def times(num: Int): Unit= {
-    sum = num * 2
-  }
-
-  def amount: Int = {
+class Dollar(
+  val amount: Int
+) {
+  def times(num: Int): Int= {
+    val sum = amount * 2
     sum
   }
 }
