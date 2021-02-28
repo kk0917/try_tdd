@@ -7,7 +7,7 @@ import org.mockito.Mockito.{mock, when}
 
 /** TODO: list
  *  $5 +10 CHF = $10 (When the rate is 2: 1)s
- *  $5 * 2 = $10
+ *  [x] $5 * 2 = $10
  *  Change amount states to private
  *  What to do with Dollar's side effects?
  *  What to do Money's rounding?
@@ -23,7 +23,7 @@ class DollarTest extends AnyFlatSpec {
    */
   val five = new Dollar(5)
 
-  "Dollar.sum function" should "fetch integers array, and can return sum them all." in {
+  "Dollar.sum function" should "multiple * amount = expected value" in {
     assert(five.times(2) === 10)
   }
 }
