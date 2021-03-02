@@ -24,13 +24,13 @@ class DollarTest extends AnyFlatSpec {
    */
   val five = new Dollar(5)
 
-  "Dollar.sum function" should "multiple * amount = expected value 10" in {
+  "Dollar.times function" should "multiple * amount = expected value 10" in {
     val five = new Dollar(5)
     val product = five.times(2)
     assert(product.amount === 10)
   }
 
-  "Dollar.sum function" should "multiple * amount = expected value 15" in {
+  "Dollar.times function" should "multiple * amount = expected value 15" in {
     val five = new Dollar(5)
     val product = five.times(3)
     assert(product.amount === 15)
