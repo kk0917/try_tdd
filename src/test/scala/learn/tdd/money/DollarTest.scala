@@ -10,6 +10,8 @@ import org.scalatest.flatspec.AnyFlatSpec
  * [ ] What to do Money's rounding?
  * [x] equals()
  * [ ] hashCode()
+ * [ ] Equivalence comparison with null
+ * [ ] Equivalence comparison with other objects
  */
 
 class DollarTest extends AnyFlatSpec {
@@ -20,14 +22,16 @@ class DollarTest extends AnyFlatSpec {
    * [x] No times Method.
    * [x] No amount Field.
    */
-  val five = new Dollar(5)
-
-  "Dollar.sum function" should "multiple * amount = expected value 10" in {
-    assert(five.times(2) === 10)
+  "Dollar.times function" should "multiple * amount = expected value 10" in {
+    val five = new Dollar(5)
+    val product = five.times(2)
+    assert(product.amount === 10)
   }
 
-  "Dollar.sum function" should "multiple * amount = expected value 15" in {
-    assert(five.times(3) === 15)
+  "Dollar.times function" should "multiple * amount = expected value 15" in {
+    val five = new Dollar(5)
+    val product = five.times(3)
+    assert(product.amount === 15)
   }
 
   "5 dollars" should "equivalent another 5 dollars instance" in {
