@@ -8,6 +8,8 @@ import org.scalatest.flatspec.AnyFlatSpec
  * [ ] Change amount states to private
  * [x] What to do with Dollar's side effects?
  * [ ] What to do Money's rounding?
+ * [x] equals()
+ * [ ] hashCode()
  */
 
 class DollarTest extends AnyFlatSpec {
@@ -26,5 +28,13 @@ class DollarTest extends AnyFlatSpec {
 
   "Dollar.sum function" should "multiple * amount = expected value 15" in {
     assert(five.times(3) === 15)
+  }
+
+  "5 dollars" should "equivalent another 5 dollars instance" in {
+    assert(new Dollar(5).equals(new Dollar(5)))
+  }
+
+  "5 dollars" should "not equivalent another value dollar instance" in {
+    assert(new Dollar(5).equals(new Dollar(6)) === false)
   }
 }
