@@ -22,8 +22,6 @@ class DollarTest extends AnyFlatSpec {
    * [x] No times Method.
    * [x] No amount Field.
    */
-  val five = new Dollar(5)
-
   "Dollar.times function" should "multiple * amount = expected value 10" in {
     val five = new Dollar(5)
     val product = five.times(2)
