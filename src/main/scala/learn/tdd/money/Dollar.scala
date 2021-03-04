@@ -1,7 +1,7 @@
 package learn.tdd.money
 
 class Dollar(
-  val amount: Int
+  private val amount: Int
 ) {
   def times(multipliet: Int): Dollar= {
     val dollar = new Dollar(amount * multipliet)
