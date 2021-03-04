@@ -29,7 +29,6 @@ class DollarTest extends AnyFlatSpec {
   }
 
   "Dollar.times function" should "multiple * amount = expected value 15" in {
-    val five = new Dollar(5)
     assert(new Dollar(15).equals(five.times(3)))
   }
 
