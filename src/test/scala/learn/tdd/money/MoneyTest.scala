@@ -14,7 +14,7 @@ import org.scalatest.flatspec.AnyFlatSpec
  * [ ] Equivalence comparison with other objects
  */
 
-class DollarTest extends AnyFlatSpec {
+class MoneyTest extends AnyFlatSpec {
 
   /** There are 4 errors of compile..
    * [x] No Dollar class.
@@ -38,5 +38,21 @@ class DollarTest extends AnyFlatSpec {
 
   "5 dollars" should "not equivalent another value dollar instance" in {
     assert(new Dollar(5).equals(new Dollar(6)) === false)
+  }
+
+  /** There are 4 errors of compile..
+   * [ ] No Franc class.
+   * [ ] No Constructor.
+   * [ ] No times Method.
+   * [ ] No amount Field.
+   */
+  val cinq = new Franc(5) // five is cinq in French
+
+  "Franc.times function" should "multiple * amount = expected value 10" in {
+    assert(new Franc(10).equals(cinq.times(2)))
+  }
+
+  "Franc.times function" should "multiple * amount = expected value 15" in {
+    assert(new Franc(15).equals(cinq.times(3)))
   }
 }
