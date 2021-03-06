@@ -12,6 +12,10 @@ import org.scalatest.flatspec.AnyFlatSpec
  * [ ] hashCode()
  * [ ] Equivalence comparison with null
  * [ ] Equivalence comparison with other objects
+ * [x] 5CHF * 2 = 10 CHF
+ * [ ] Duplicate Dollar and Franc
+ * [ ] Generalization of equals
+ * [ ] Generalization of times
  */
 
 class MoneyTest extends AnyFlatSpec {
@@ -41,10 +45,10 @@ class MoneyTest extends AnyFlatSpec {
   }
 
   /** There are 4 errors of compile..
-   * [ ] No Franc class.
-   * [ ] No Constructor.
-   * [ ] No times Method.
-   * [ ] No amount Field.
+   * [x] No Franc class.
+   * [x] No Constructor.
+   * [x] No times Method.
+   * [x] No amount Field.
    */
   val cinq = new Franc(5) // five is cinq in French
 
