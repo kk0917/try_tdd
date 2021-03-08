@@ -5,6 +5,6 @@ abstract class Money(
 ) {
   def isEquiv(obj: Money): Boolean = {
     val money = obj
-    amount == money.amount
+    amount == money.amount && getClass.equals(money.getClass)
   }
 }

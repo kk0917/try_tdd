@@ -16,6 +16,8 @@ import org.scalatest.flatspec.AnyFlatSpec
  * [ ] Duplicate Dollar and Franc
  * [x] Generalization of equals
  * [ ] Generalization of times
+ * [x] Compare Franc and Dollar
+ * [ ] Concept of Money
  */
 
 class MoneyTest extends AnyFlatSpec {
@@ -42,6 +44,10 @@ class MoneyTest extends AnyFlatSpec {
 
   "5 dollars" should "not equivalent another value dollar instance" in {
     assert(new Dollar(5).isEquiv(new Dollar(6)) === false)
+  }
+
+  "franc" should "not equals dollars" in {
+    assert(new Franc(5).isEquiv(new Dollar(5)) === false)
   }
 
   /** There are 4 errors of compile..
