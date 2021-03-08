@@ -16,6 +16,8 @@ import org.scalatest.flatspec.AnyFlatSpec
  * [ ] Duplicate Dollar and Franc
  * [x] Generalization of equals
  * [ ] Generalization of times
+ * [x] Compare Franc and Dollar
+ * [ ] Concept of Money
  */
 
 class MoneyTest extends AnyFlatSpec {
@@ -31,17 +33,27 @@ class MoneyTest extends AnyFlatSpec {
   "Dollar.times function" should "multiple * amount = expected value 10" in {
     assert(new Dollar(10).isEquiv(five.times(2)))
   }
-
   "Dollar.times function" should "multiple * amount = expected value 15" in {
     assert(new Dollar(15).isEquiv(five.times(3)))
   }
 
+  /** Equivalence comparing
+   *
+   */
   "5 dollars" should "equivalent another 5 dollars instance" in {
     assert(new Dollar(5).isEquiv(new Dollar(5)))
   }
-
   "5 dollars" should "not equivalent another value dollar instance" in {
     assert(new Dollar(5).isEquiv(new Dollar(6)) === false)
+  }
+  "5 cinq" should "equivalent another 5 cinq instance" in {
+    assert(new Franc(5).isEquiv(new Franc(5)))
+  }
+  "5 cinq" should "not equivalent another value cinq instance" in {
+    assert(new Franc(5).isEquiv(new Franc(6)) === false)
+  }
+  "franc" should "not equals dollars" in {
+    assert(new Franc(5).isEquiv(new Dollar(5)) === false)
   }
 
   /** There are 4 errors of compile..
@@ -55,16 +67,13 @@ class MoneyTest extends AnyFlatSpec {
   "Franc.times function" should "multiple * amount = expected value 10" in {
     assert(new Franc(10).isEquiv(cinq.times(2)))
   }
-
   "Franc.times function" should "multiple * amount = expected value 15" in {
     assert(new Franc(15).isEquiv(cinq.times(3)))
   }
 
-  "5 cinq" should "equivalent another 5 cinq instance" in {
-    assert(new Franc(5).isEquiv(new Franc(5)))
-  }
-
-  "5 cinq" should "not equivalent another value cinq instance" in {
-    assert(new Franc(5).isEquiv(new Franc(6)) === false)
-  }
+  /** Summery
+   * Expressed the doubt into my head as test
+   * The test Passed. Not perfect, but It's OK
+   * More design putted it off until really needs
+   */
 }
