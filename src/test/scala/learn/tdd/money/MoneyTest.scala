@@ -28,7 +28,7 @@ class MoneyTest extends AnyFlatSpec {
    * [x] No times Method.
    * [x] No amount Field.
    */
-  val five = new Dollar(5)
+  val five: Money = Money.dollar(5)
 
   "Dollar.times function" should "multiple * amount = expected value 10" in {
     assert(new Dollar(10).isEquiv(five.times(2)))

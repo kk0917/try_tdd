@@ -7,4 +7,8 @@ abstract class Money(
     val money = obj
     amount == money.amount && getClass.equals(money.getClass)
   }
+
+  def dollar(amount: Int): Dollar = {
+    return new Dollar(amount)
+  }
 }
