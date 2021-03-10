@@ -28,23 +28,24 @@ class MoneyTest extends AnyFlatSpec {
    * [x] No times Method.
    * [x] No amount Field.
    */
-  val five: Money = Money.dollar(5)
+  val money: Money = new Money(5)
+  val five: Money  = money.dollar(5)
 
   "Dollar.times function" should "multiple * amount = expected value 10" in {
-    assert(new Dollar(10).isEquiv(five.times(2)))
+    assert(money.dollar(10).isEquiv(five.times(2)))
   }
   "Dollar.times function" should "multiple * amount = expected value 15" in {
-    assert(new Dollar(15).isEquiv(five.times(3)))
+    assert(money.dollar(15).isEquiv(five.times(3)))
   }
 
   /** Equivalence comparing
    *
    */
   "5 dollars" should "equivalent another 5 dollars instance" in {
-    assert(new Dollar(5).isEquiv(new Dollar(5)))
+    assert(money.dollar(5).isEquiv(money.dollar(5)))
   }
   "5 dollars" should "not equivalent another value dollar instance" in {
-    assert(new Dollar(5).isEquiv(new Dollar(6)) === false)
+    assert(money.dollar(5).isEquiv(money.dollar(6)) === false)
   }
   "5 cinq" should "equivalent another 5 cinq instance" in {
     assert(new Franc(5).isEquiv(new Franc(5)))
@@ -53,7 +54,7 @@ class MoneyTest extends AnyFlatSpec {
     assert(new Franc(5).isEquiv(new Franc(6)) === false)
   }
   "franc" should "not equals dollars" in {
-    assert(new Franc(5).isEquiv(new Dollar(5)) === false)
+    assert(new Franc(5).isEquiv(money.dollar(5)) === false)
   }
 
   /** There are 4 errors of compile..
