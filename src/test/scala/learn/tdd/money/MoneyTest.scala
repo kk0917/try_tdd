@@ -28,32 +28,31 @@ class MoneyTest extends AnyFlatSpec {
    *  [x] No times Method.
    *  [x] No amount Field.
    */
-  val money: Money = new Money(5)
-  val five: Money = money.dollar(5)
+  val five: Money = Money.dollar(5)
 
   "Dollar.times function" should "multiple * amount = expected value 10" in {
-    assert(money.dollar(10).isEquiv(five.times(2)))
+    assert(Money.dollar(10).isEquiv(five.times(2)))
   }
   "Dollar.times function" should "multiple * amount = expected value 15" in {
-    assert(money.dollar(15).isEquiv(five.times(3)))
+    assert(Money.dollar(15).isEquiv(five.times(3)))
   }
 
   /** Equivalence comparing
    */
   "5 dollars" should "equivalent another 5 dollars instance" in {
-    assert(money.dollar(5).isEquiv(money.dollar(5)))
+    assert(Money.dollar(5).isEquiv(Money.dollar(5)))
   }
   "5 dollars" should "not equivalent another value dollar instance" in {
-    assert(money.dollar(5).isEquiv(money.dollar(6)) === false)
+    assert(Money.dollar(5).isEquiv(Money.dollar(6)) === false)
   }
   "5 cinq" should "equivalent another 5 cinq instance" in {
-    assert(money.franc(5).isEquiv(money.franc(5)))
+    assert(Money.franc(5).isEquiv(Money.franc(5)))
   }
   "5 cinq" should "not equivalent another value cinq instance" in {
-    assert(money.franc(5).isEquiv(money.franc(6)) === false)
+    assert(Money.franc(5).isEquiv(Money.franc(6)) === false)
   }
   "franc" should "not equals dollars" in {
-    assert(money.franc(5).isEquiv(money.dollar(5)) === false)
+    assert(Money.franc(5).isEquiv(Money.dollar(5)) === false)
   }
 
   /** There are 4 errors of compile..
@@ -62,13 +61,13 @@ class MoneyTest extends AnyFlatSpec {
    *  [x] No times Method.
    *  [x] No amount Field.
    */
-  val cinq: Money = money.franc(5) // five is cinq in French
+  val cinq: Money = Money.franc(5) // five is cinq in French
 
   "Franc.times function" should "multiple * amount = expected value 10" in {
-    assert(money.franc(10).isEquiv(cinq.times(2)))
+    assert(Money.franc(10).isEquiv(cinq.times(2)))
   }
   "Franc.times function" should "multiple * amount = expected value 15" in {
-    assert(money.franc(15).isEquiv(cinq.times(3)))
+    assert(Money.franc(15).isEquiv(cinq.times(3)))
   }
 
   /** Summery

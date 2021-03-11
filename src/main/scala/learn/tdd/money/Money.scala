@@ -1,20 +1,19 @@
 package learn.tdd.money
 
-class Money(
+abstract class Money(
   protected val amount: Int
 ) {
 
-  def times(multiplier: Int): Money =
-    new Money(amount)
+  def times(multiplier: Int): Money
 
   def isEquiv(obj: Money): Boolean = {
     val money = obj
     amount == money.amount && getClass.equals(money.getClass)
   }
+}
 
-  def dollar(amount: Int): Dollar =
-    return new Dollar(amount)
+object Money {
+  def dollar(amount: Int): Dollar = new Dollar(amount)
 
-  def franc(amount: Int): Franc =
-    return new Franc(amount)
+  def franc(amount: Int): Franc = new Franc(amount)
 }
