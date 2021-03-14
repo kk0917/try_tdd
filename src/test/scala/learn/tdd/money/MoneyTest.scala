@@ -18,6 +18,7 @@ import org.scalatest.flatspec.AnyFlatSpec
  *  [ ] Generalization of times
  *  [x] Compare Franc and Dollar
  *  [ ] Concept of Money
+ *  [ ] Remove testFrancMultiplication?
  */
 
 class MoneyTest extends AnyFlatSpec {
