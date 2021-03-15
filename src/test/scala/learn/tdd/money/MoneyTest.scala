@@ -71,18 +71,17 @@ class MoneyTest extends AnyFlatSpec {
     assert(Money.franc(15).isEquiv(cinq.times(3)))
   }
 
+  /** There are 1 errors of compile..
+   *  [x] No currency Method.
+   */
+  "Money.currency function" should "currency" in {
+    assert("USD" === Money.dollar(1).currency())
+    assert("CHF" === Money.franc(1).currency())
+  }
+
   /** Summery
    *
-   *  1.8
-   *  Match the time method of Dollar class and Franc class.
-   *   To get one step closer to being able to remove duplication.
-   *  Move the method definition at least.
-   *  Introduce Factory Method Pattern and Hidden the existence of two classes.
-   *   As the result, I noticed that several tests became redundant.
-   *
-   *  1.7
-   *  Expressed the doubt into my head as test
-   *  The test Passed. Not perfect, but It's OK
-   *  More design putted it off until really needs
+   *  1.9
+   *  ...
    */
 }
