@@ -17,7 +17,7 @@ import org.scalatest.flatspec.AnyFlatSpec
  *  [x] Generalization of equals
  *  [ ] Generalization of times
  *  [x] Compare Franc and Dollar
- *  [ ] Concept of Money
+ *  [x] Concept of Money
  *  [ ] Remove testFrancMultiplication?
  */
 
@@ -79,9 +79,7 @@ class MoneyTest extends AnyFlatSpec {
     assert("CHF" === Money.franc(1).currency())
   }
 
-  /** Summery
-   *
-   *  1.9
-   *  ...
+  /** 1.9 Summery
+   *  I almost got absorbed in a big design change, so ...
    */
 }
