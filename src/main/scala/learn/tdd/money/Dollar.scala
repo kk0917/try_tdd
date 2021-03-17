@@ -1,7 +1,10 @@
 package learn.tdd.money
 
 class Dollar(
-  val amount: Int
+  var amount: Int
 ) {
-  def times(multiplier: Int): Unit = null
+  def times(multiplier: Int): Int = {
+    amount *= multiplier
+    amount
+  }
 }
