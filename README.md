@@ -16,10 +16,18 @@
 
 ## Memo
 
-### TDD Cycle
-
-  1. Write one small code.
-  2. Exec all tests and confirm that failed just one.
-  3. Do small changing.
-  4. Exec tests again and confirm all succeed.
-  5. Do refactoring and remove the duplicates
+### TDD Cycle and the effect
+  
+ 1. Write a test
+ 2. Run all tests and confirm failing the new tests
+ 3. Do small change (impl small)
+ 4. Run all tests and confirm passing the new tests
+ 5. Do refactoring and remove the duplicates
+  
+Such the following surprises will be waiting
+  
+ * How (Unit)Test support the gradually increased feature
+ * How the new test passes with the small and square changing
+ * How tdd is ran test frequently
+ * How you refactor with taking small steps
+  
