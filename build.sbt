@@ -12,7 +12,6 @@ lazy val root = (project in file(".")).settings(
     "org.scalatest"       %% "scalatest-flatspec"       % "3.2.2"  % Test,
     "org.scoverage"       %% "scalac-scoverage-runtime" % "1.4.0"  % Test,
     "org.scoverage"       %% "scalac-scoverage-plugin"  % "1.4.0"  % "provided",
-    "org.mockito"          % "mockito-core"             % "2.21.0" % Test,
-    "com.beautiful-scala" %% "scalastyle"               % "1.5.0"
+    "org.mockito"          % "mockito-core"             % "2.21.0" % Test
   )
 )
