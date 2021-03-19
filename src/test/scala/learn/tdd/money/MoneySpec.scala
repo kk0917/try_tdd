@@ -32,20 +32,15 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
     }
 
     Scenario("confirm other number to Dollar's amount field") {
-      /** There're four compile errors
-       * [x] No Dollar class
-       * [x] No Constructor
-       * [x] No times method
-       * [x] No amount field
-       */
+
       Given("Dollar is given 5 dollar")
       val five: Dollar = new Dollar(5)
 
-      When("conversion Double rate")
+      When("conversion triple rate")
       val product: Dollar = five.times(3)
 
       Then("amount equals 10")
-      assert(15 === five.amount)
+      assert(15 === product.amount)
     }
   }
 }
