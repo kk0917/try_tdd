@@ -16,10 +16,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   Feature("Currency rate conversion") {
     Scenario("User conversion Dollar to Franc") {
       /** There're four compile errors
-       * No Dollar class
-       * - No Constructor
-       *   No times method
-       *   No amount field
+       * [x] No Dollar class
+       * [x] No Constructor
+       * [x] No times method
+       * [x] No amount field
        */
       Given("Dollar is given 5 dollar")
       val five: Dollar = new Dollar(5)
