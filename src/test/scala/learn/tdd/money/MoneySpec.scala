@@ -31,4 +31,15 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(10 === five.amount)
     }
   }
+  /** Summary
+   *
+   ** Made the list of the tets you should write.
+   ** Expressed How I'm grad with small tests code.
+   ** Put if off about the detail of JUnit.
+   ** Passed compiler by using empty implementation.
+   ** Passed the tests while committing crimes
+   ** Began moved codes to change it to the commonization gradually,
+   **   and replaced hardcoding's value to variable.
+   ** Fasten these items to the TODO list and avoid to bring many things on at once.
+   */
 }
