@@ -43,4 +43,11 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(15 === product.amount)
     }
   }
+  /** Summary
+   *
+   ** Copied the problems of design to test codes
+   *    and confirmed the tests failed because of the problems
+   ** Passed the compiles with the temp impls
+   ** Did impl that seems correct, and passed the tests
+   */
 }
