@@ -10,6 +10,8 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] change amount state to private?
    * [x] What to do with Dollar's side effect?
    * [ ] What to do with Money's rounding?
+   * [ ] equals()
+   * [ ] hashCode()
    */
   info("Multilateral currency")
 
@@ -43,11 +45,17 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(15 === product.amount)
     }
   }
+
+  Feature("Triangulation") {
+    Scenario("Confirm instances are equivalence") {
+      Given("Give 5 dollars to the Dollar argument")
+      When("when generate Dollar instance")
+      Then("These instance are equivalence")
+      assert(new Dollar(5).equals(new Dollar(5)) === true)
+    }
+  }
   /** Summary
    *
-   ** Copied the problems of design to test codes
-   *    and confirmed the tests failed because of the problems
-   ** Passed the compiles with the temp impls
-   ** Did impl that seems correct, and passed the tests
+   *
    */
 }
