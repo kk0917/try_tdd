@@ -10,8 +10,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] change amount state to private?
    * [x] What to do with Dollar's side effect?
    * [ ] What to do with Money's rounding?
-   * [ ] equals()
+   * [x] equals()
    * [ ] hashCode()
+   * [ ] Equivalence comparison with null
+   * [ ] Equivalence comparison with another objects
    */
   info("Multilateral currency")
 
@@ -53,9 +55,20 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       Then("These instance are equivalence")
       assert(new Dollar(5).equals(new Dollar(5)) === true)
     }
+
+    Scenario("Confirm instances are not equivalence") {
+      Given("Give 5 dollars to the Dollar argument")
+      When("when generate Dollar instance")
+      Then("These instance are not equivalence")
+      assert(new Dollar(5).equals(new Dollar(6)) === false)
+    }
   }
   /** Summary
    *
-   *
+   * Understood the condition that satisfy 'Value Object' pattern.
+   * Wrote codes that satisfy that condition.
+   * Implemented simply
+   * Wrote more one test instead of Refactored quickly
+   * Refactored passing the two scenarios at the same time.
    */
 }
