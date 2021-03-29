@@ -32,7 +32,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       val product: Dollar = five.times(2)
 
       Then("amount equals 10")
-      assert(10 === product.amount)
+      assert(new Dollar(10).equals(product))
     }
 
     Scenario("confirm other number to Dollar's amount field") {
@@ -44,7 +44,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       val product: Dollar = five.times(3)
 
       Then("amount equals 10")
-      assert(15 === product.amount)
+      assert(new Dollar(15).equals(product))
     }
   }
 
