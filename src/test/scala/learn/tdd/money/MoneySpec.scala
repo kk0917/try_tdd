@@ -7,7 +7,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   /** TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
    * [x] $5 * 2 = $10
-   * [x] change amount state to private?
+   * [ ] change amount state to private?
    * [x] What to do with Dollar's side effect?
    * [ ] What to do with Money's rounding?
    * [x] equals()
@@ -32,7 +32,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       val product: Dollar = five.times(2)
 
       Then("amount equals 10")
-      assert(new Dollar(10).equals(five.times(2)))
+      assert(10 === product.amount)
     }
 
     Scenario("confirm other number to Dollar's amount field") {
@@ -44,7 +44,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       val product: Dollar = five.times(3)
 
       Then("amount equals 10")
-      assert(new Dollar(15).equals(five.times(3)))
+      assert(15 === product.amount)
     }
   }
 
@@ -65,10 +65,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * Improved the tests by using the just created feature.
-   * Noticed already throw my hands up now
-   *   if there're 2 tests that not verified properly in the frist place.
-   * Accepted their above risks and move forward.
-   * Degrees the coupling of The tests code and the product by using a new feature of the test target ojects.
+   * Understood the condition that satisfy 'Value Object' pattern.
+   * Wrote codes that satisfy that condition.
+   * Implemented simply
+   * Wrote more one test instead of Refactored quickly
+   * Refactored passing the two scenarios at the same time.
    */
 }
