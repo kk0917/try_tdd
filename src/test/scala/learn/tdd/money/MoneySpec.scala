@@ -17,7 +17,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    */
   info("Multilateral currency")
 
-  Feature("Currency rate conversion") {
+  Feature("Currency rate conversion by Dollar side") {
     Scenario("User conversion Dollar to Franc") {
       /** There're four compile errors
        * [x] No Dollar class
@@ -57,6 +57,33 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       When("when generate Dollar instance")
       Then("These instance are not equivalence")
       assert(new Dollar(5).equals(new Dollar(6)) === false)
+    }
+  }
+
+  Feature("Currency rate conversion by Franc side") {
+    Scenario("User conversion Franc to Dollar") {
+      /** There're four compile errors
+       * [ ] No Dollar class
+       * [ ] No Constructor
+       * [ ] No times method
+       * [ ] No amount field
+       */
+      Given("Dollar is given 5 dollar")
+      val five: Franc = new Franc(5)
+
+      When("conversion Double rate")
+      Then("amount equals 10")
+      assert(new Franc(10).equals(five.times(2)))
+    }
+
+    Scenario("confirm other number to Franc's amount field") {
+
+      Given("Franc is given 5 dollar")
+      val five: Franc = new Franc(5)
+
+      When("conversion triple rate")
+      Then("amount equals 10")
+      assert(new Franc(15).equals(five.times(3)))
     }
   }
   /** Summary
