@@ -14,10 +14,14 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] hashCode()
    * [ ] Equivalence comparison with null
    * [ ] Equivalence comparison with another objects
+   * [x] 5CHF * 2 = 10CHF
+   * [ ] Compare Dollar and Franc
+   * [ ] Generalization of equals
+   * [ ] Generarization of times
    */
   info("Multilateral currency")
 
-  Feature("Currency rate conversion") {
+  Feature("Currency rate conversion by Dollar side") {
     Scenario("User conversion Dollar to Franc") {
       /** There're four compile errors
        * [x] No Dollar class
@@ -59,12 +63,38 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(new Dollar(5).equals(new Dollar(6)) === false)
     }
   }
+
+  Feature("Currency rate conversion by Franc side") {
+    Scenario("User conversion Franc to Dollar") {
+      /** There're four compile errors
+       * [x] No Franc class
+       * [x] No Constructor
+       * [x] No times method
+       * [x] No amount field
+       */
+      Given("Franc is given 5 franc")
+      val five: Franc = new Franc(5)
+
+      When("conversion Double rate")
+      Then("amount equals 10")
+      assert(new Franc(10).equals(five.times(2)))
+    }
+
+    Scenario("confirm other number to Franc's amount field") {
+
+      Given("Franc is given 5 dollar")
+      val five: Franc = new Franc(5)
+
+      When("conversion triple rate")
+      Then("amount equals 10")
+      assert(new Franc(15).equals(five.times(3)))
+    }
+  }
   /** Summary
    *
-   * Understood the condition that satisfy 'Value Object' pattern.
-   * Wrote codes that satisfy that condition.
-   * Implemented simply
-   * Wrote more one test instead of Refactored quickly
-   * Refactored passing the two scenarios at the same time.
+   * It's too fast to challenge to Big tests yet,
+   *   so hammer out small tests to take the next step.
+   * Created tests by copying and pasting the all of the external tests shamelessly.
+   * Decided to go home until remove this duplicates code.
    */
 }
