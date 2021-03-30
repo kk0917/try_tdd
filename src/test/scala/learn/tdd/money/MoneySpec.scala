@@ -14,6 +14,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] hashCode()
    * [ ] Equivalence comparison with null
    * [ ] Equivalence comparison with another objects
+   * [x] 5CHF * 2 = 10CHF
+   * [ ] Compare Dollar and Franc
+   * [ ] Generalization of equals
+   * [ ] Generarization of times
    */
   info("Multilateral currency")
 
@@ -63,12 +67,12 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   Feature("Currency rate conversion by Franc side") {
     Scenario("User conversion Franc to Dollar") {
       /** There're four compile errors
-       * [ ] No Dollar class
-       * [ ] No Constructor
-       * [ ] No times method
-       * [ ] No amount field
+       * [x] No Franc class
+       * [x] No Constructor
+       * [x] No times method
+       * [x] No amount field
        */
-      Given("Dollar is given 5 dollar")
+      Given("Franc is given 5 franc")
       val five: Franc = new Franc(5)
 
       When("conversion Double rate")
@@ -88,10 +92,9 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * Understood the condition that satisfy 'Value Object' pattern.
-   * Wrote codes that satisfy that condition.
-   * Implemented simply
-   * Wrote more one test instead of Refactored quickly
-   * Refactored passing the two scenarios at the same time.
+   * It's too fast to challenge to Big tests yet,
+   *   so hammer out small tests to take the next step.
+   * Created tests by copying and pasting the all of the external tests shamelessly.
+   * Decided to go home until remove this duplicates code.
    */
 }
