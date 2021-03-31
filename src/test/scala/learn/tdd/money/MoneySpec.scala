@@ -7,7 +7,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   /** TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
    * [x] $5 * 2 = $10
-   * [ ] change amount state to private?
+   * [x] change amount state to private
    * [x] What to do with Dollar's side effect?
    * [ ] What to do with Money's rounding?
    * [x] equals()
@@ -15,9 +15,11 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] Equivalence comparison with null
    * [ ] Equivalence comparison with another objects
    * [x] 5CHF * 2 = 10CHF
-   * [ ] Compare Dollar and Franc
-   * [ ] Generalization of equals
+   * [ ] Duplicate Dollar and Franc
+   * [x] Generalization of equals
    * [ ] Generarization of times
+   * [ ] Compare Dollar and Franc
+   *
    */
   info("Multilateral currency")
 
@@ -48,19 +50,21 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
     }
   }
 
-  Feature("Triangulation") {
-    Scenario("Confirm instances are equivalence") {
-      Given("Give 5 dollars to the Dollar argument")
-      When("when generate Dollar instance")
-      Then("These instance are equivalence")
+  Feature("Equivalence comparison") {
+    Scenario("Confirm that Dollar instances are equivalence") {
       assert(new Dollar(5).equals(new Dollar(5)) === true)
     }
 
-    Scenario("Confirm instances are not equivalence") {
-      Given("Give 5 dollars to the Dollar argument")
-      When("when generate Dollar instance")
-      Then("These instance are not equivalence")
+    Scenario("Confirm that Dollar instances are not equivalence") {
       assert(new Dollar(5).equals(new Dollar(6)) === false)
+    }
+
+    Scenario("Confirm that Franc instances are equivalence") {
+      assert(new Franc(5).equals(new Franc(5)) === true)
+    }
+
+    Scenario("Confirm that Franc instances are not equivalence") {
+      assert(new Franc(5).equals(new Franc(6)) === false)
     }
   }
 
@@ -92,9 +96,9 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * It's too fast to challenge to Big tests yet,
-   *   so hammer out small tests to take the next step.
-   * Created tests by copying and pasting the all of the external tests shamelessly.
-   * Decided to go home until remove this duplicates code.
+   * Move the method from Dollar subclass to Money superclass gradually.
+   * Same Franc subclass too.
+   * Reduce equals() method from both of subclass
+   *   after removing the diff of them.
    */
 }
