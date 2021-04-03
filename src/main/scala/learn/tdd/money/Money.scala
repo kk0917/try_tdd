@@ -5,6 +5,6 @@ abstract class Money {
 
   def equals(obj: Money): Boolean = {
     val money: Money = obj
-    amount == money.amount && getClass.equals(money.getClass)
+    amount == money.amount
   }
 }

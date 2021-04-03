@@ -18,8 +18,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] Duplicate Dollar and Franc
    * [x] Generalization of equals
    * [ ] Generarization of times
-   * [x] Compare Dollar and Franc
-   * [x] Concept of Money
+   * [ ] Compare Dollar and Franc
    */
   info("Multilateral currency")
 
