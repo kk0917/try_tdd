@@ -19,7 +19,6 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [x] Generalization of equals
    * [ ] Generarization of times
    * [ ] Compare Dollar and Franc
-   *
    */
   info("Multilateral currency")
 
@@ -65,6 +64,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
 
     Scenario("Confirm that Franc instances are not equivalence") {
       assert(new Franc(5).equals(new Franc(6)) === false)
+    }
+
+    Scenario("Confirm that Franc instance and Dollar is not equivalence") {
+      assert(new Franc(5).equals(new Dollar(5)) === false)
     }
   }
 
