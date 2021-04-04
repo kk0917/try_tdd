@@ -3,6 +3,7 @@ package learn.tdd.money
 abstract class Money {
   protected var amount: Int
   def times(multiplier: Int): Money
+  def currency(): String
 
   def equals(obj: Money): Boolean = {
     val money: Money = obj
