@@ -2,8 +2,8 @@ package learn.tdd.money
 
 class Franc(
   val amount: Int,
-  val currencyType: String = "CHF"
+  val currencyType: String
 ) extends Money {
 
-  def times(multiplier: Int): Money = new Franc(amount * multiplier)
+  def times(multiplier: Int): Money = Money.franc(amount * multiplier)
 }
