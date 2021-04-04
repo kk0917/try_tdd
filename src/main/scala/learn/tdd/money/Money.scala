@@ -5,6 +5,7 @@ abstract class Money {
   protected val currencyType: String
 
   def times(multiplier: Int): Money
+
   def currency(): String = currencyType
 
   def equals(obj: Money): Boolean = {
