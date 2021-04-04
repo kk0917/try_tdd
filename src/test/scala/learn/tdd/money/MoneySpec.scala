@@ -100,9 +100,8 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * Move the method from Dollar subclass to Money superclass gradually.
-   * Same Franc subclass too.
-   * Reduce equals() method from both of subclass
-   *   after removing the diff of them.
+   * Expressed the problems in my head.
+   * Pass the tests so-so, not perfectly.
+   * Further design Putted it off until when I really need it.
    */
 }
