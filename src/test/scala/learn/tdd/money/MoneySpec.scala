@@ -18,8 +18,8 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] Duplicate Dollar and Franc
    * [x] Generalization of equals
    * [ ] Generarization of times
-   * [ ] Compare Dollar and Franc
-   *
+   * [x] Compare Dollar and Franc
+   * [ ] Concept of Money
    */
   info("Multilateral currency")
 
@@ -66,6 +66,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
     Scenario("Confirm that Franc instances are not equivalence") {
       assert(new Franc(5).equals(new Franc(6)) === false)
     }
+
+    Scenario("Confirm that Franc instance and Dollar is not equivalence") {
+      assert(new Franc(5).equals(new Dollar(5)) === false)
+    }
   }
 
   Feature("Currency rate conversion by Franc side") {
@@ -96,9 +100,8 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * Move the method from Dollar subclass to Money superclass gradually.
-   * Same Franc subclass too.
-   * Reduce equals() method from both of subclass
-   *   after removing the diff of them.
+   * Expressed the problems in my head.
+   * Pass the tests so-so, not perfectly.
+   * Further design Putted it off until when I really need it.
    */
 }
