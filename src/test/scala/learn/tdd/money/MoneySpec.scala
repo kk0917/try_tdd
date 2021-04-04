@@ -20,6 +20,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] Generarization of times
    * [x] Compare Dollar and Franc
    * [ ] Concept of Money
+   * [ ] Delete Franc's test cases?
    */
   info("Multilateral currency")
 
@@ -60,15 +61,15 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
     }
 
     Scenario("Confirm that Franc instances are equivalence") {
-      assert(new Franc(5).equals(new Franc(5)) === true)
+      assert(Money.franc(5).equals(Money.franc(5)) === true)
     }
 
     Scenario("Confirm that Franc instances are not equivalence") {
-      assert(new Franc(5).equals(new Franc(6)) === false)
+      assert(Money.franc(5).equals(Money.franc(6)) === false)
     }
 
     Scenario("Confirm that Franc instance and Dollar is not equivalence") {
-      assert(new Franc(5).equals(Money.dollar(5)) === false)
+      assert(Money.franc(5).equals(Money.dollar(5)) === false)
     }
   }
 
@@ -100,9 +101,11 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * Move the method from Dollar subclass to Money superclass gradually.
-   * Same Franc subclass too.
-   * Reduce equals() method from both of subclass
-   *   after removing the diff of them.
+   * For getting one step closer to ready to remove duplicates,
+   *   matched the signature of Money's time method to two subclasses.
+   * At least, movee method definition to Superclass.
+   * Introduced Factory Method pattarn and hidden their subclasses from test codes.
+   * The result of hidden their subclasses, noticed several tests are redundant,
+   *   but left it as it is.
    */
 }
