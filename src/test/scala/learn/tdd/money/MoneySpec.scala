@@ -32,11 +32,11 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
        * [x] No amount field
        */
       Given("Dollar is given 5 dollar")
-      val five: Dollar = new Dollar(5)
+      val five: Money = Money.dollar(5)
 
       When("conversion Double rate")
       Then("amount equals 10")
-      assert(new Dollar(10).equals(five.times(2)))
+      assert(Money.dollar(10).equals(five.times(2)))
     }
 
     Scenario("confirm other number to Dollar's amount field") {
@@ -46,17 +46,17 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
 
       When("conversion triple rate")
       Then("amount equals 10")
-      assert(new Dollar(15).equals(five.times(3)))
+      assert(Money.dollar(15).equals(five.times(3)))
     }
   }
 
   Feature("Equivalence comparison") {
     Scenario("Confirm that Dollar instances are equivalence") {
-      assert(new Dollar(5).equals(new Dollar(5)) === true)
+      assert(Money.dollar(5).equals(Money.dollar(5)) === true)
     }
 
     Scenario("Confirm that Dollar instances are not equivalence") {
-      assert(new Dollar(5).equals(new Dollar(6)) === false)
+      assert(Money.dollar(5).equals(Money.dollar(6)) === false)
     }
 
     Scenario("Confirm that Franc instances are equivalence") {
@@ -68,7 +68,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
     }
 
     Scenario("Confirm that Franc instance and Dollar is not equivalence") {
-      assert(new Franc(5).equals(new Dollar(5)) === false)
+      assert(new Franc(5).equals(Money.dollar(5)) === false)
     }
   }
 
