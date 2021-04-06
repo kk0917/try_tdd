@@ -1,10 +1,10 @@
 package learn.tdd.money
 
-abstract class Money {
+class Money {
   protected val amount: Int
   protected val currencyType: String
 
-  def times(multiplier: Int): Money
+  def times(multiplier: Int): Money = null
 
   def currency(): String = currencyType
 
