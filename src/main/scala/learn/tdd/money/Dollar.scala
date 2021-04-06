@@ -1,7 +1,9 @@
 package learn.tdd.money
 
 class Dollar(
-  override var amount: Int
+  val amount: Int,
+  val currencyType: String = "USD"
 ) extends Money {
-  def times(multiplier: Int): Money = new Dollar(amount * multiplier)
+
+  def times(multiplier: Int): Money = Money.dollar(amount * multiplier)
 }

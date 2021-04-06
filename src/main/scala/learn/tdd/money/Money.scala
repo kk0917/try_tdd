@@ -1,8 +1,12 @@
 package learn.tdd.money
 
 abstract class Money {
-  protected var amount: Int
+  protected val amount: Int
+  protected val currencyType: String
+
   def times(multiplier: Int): Money
+
+  def currency(): String = currencyType
 
   def equals(obj: Money): Boolean = {
     val money: Money = obj
@@ -11,7 +15,7 @@ abstract class Money {
 }
 
 object Money {
-  def dollar(amount: Int): Money = new Dollar(amount)
+  def dollar(amount: Int): Money = new Dollar(amount, "USD")
 
-  def franc(amount: Int): Money = new Franc(amount)
+  def franc(amount: Int): Money = new Franc(amount, "CHF")
 }
