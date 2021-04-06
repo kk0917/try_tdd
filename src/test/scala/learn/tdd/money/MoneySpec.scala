@@ -114,6 +114,14 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       Then("currency Franc's type match")
       assert("CHF" === Money.franc(1).currency())
     }
+
+    Scenario("compare whether currency type of Dollar is equivalence or not") {
+      assert(new Money(amount = 10, "CHF").equals(new Dollar(10, "CHF")))
+    }
+
+    Scenario("compare whether currency type of Franc is equivalence or not") {
+      assert(new Money(amount = 10, "CHF").equals(new Franc(10, "CHF")))
+    }
   }
   /** Summary
    *
