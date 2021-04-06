@@ -17,7 +17,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [x] 5CHF * 2 = 10CHF
    * [ ] Duplicate Dollar and Franc
    * [x] Generalization of equals
-   * [ ] Generarization of times
+   * [x] Generarization of times
    * [x] Compare Dollar and Franc
    * [x] Concept of Money
    * [ ] Delete Franc's test cases?
@@ -125,8 +125,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * I'm likely to get into the Big design changes,
-   *   started to change the small changes before it in front of it.
-   * ...
+   * For eliminating diff "times()" of tow subclass,
+   *   at first, ...
    */
 }
