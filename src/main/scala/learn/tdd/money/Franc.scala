@@ -5,5 +5,5 @@ class Franc(
   val currencyType: String = "CHF"
 ) extends Money {
 
-  def times(multiplier: Int): Money = new Franc(amount * multiplier, currencyType)
+  def times(multiplier: Int): Money = new Money(amount * multiplier, currencyType)
 }
