@@ -17,7 +17,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [x] 5CHF * 2 = 10CHF
    * [ ] Duplicate Dollar and Franc
    * [x] Generalization of equals
-   * [x] Generarization of times
+   * [ ] Generarization of times
    * [x] Compare Dollar and Franc
    * [x] Concept of Money
    * [ ] Delete Franc's test cases?
@@ -100,7 +100,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
     }
   }
 
-  Feature("Confirm whether currency type matched or not") {
+  Feature("Confirm either currency type matched or not") {
     Scenario("match currency type of Dollar") {
       Given("")
       When("")
@@ -115,18 +115,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert("CHF" === Money.franc(1).currency())
     }
   }
-
-  Feature("Confirm class equality") {
-    Scenario("match currency type of Dollar") {
-      Given("")
-      When("")
-      Then("currency Dollar's type match")
-      assert(new Money(10, "CHF").equals(new Franc(10, "CHF")))
-    }
-  }
   /** Summary
    *
-   * For removing the times method's diff of the subclasses, at first,
-   *   ...
+   * I'm likely to get into the Big design changes,
+   *   started to change the small changes before it in front of it.
+   * ...
    */
 }
