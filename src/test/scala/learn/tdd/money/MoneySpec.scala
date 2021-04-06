@@ -17,7 +17,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [x] 5CHF * 2 = 10CHF
    * [ ] Duplicate Dollar and Franc
    * [x] Generalization of equals
-   * [ ] Generarization of times
+   * [x] Generarization of times
    * [x] Compare Dollar and Franc
    * [x] Concept of Money
    * [ ] Delete Franc's test cases?
@@ -114,11 +114,18 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       Then("currency Franc's type match")
       assert("CHF" === Money.franc(1).currency())
     }
+
+    Scenario("compare whether currency type of Dollar is equivalence or not") {
+      assert(new Money(amount = 10, "CHF").equals(new Dollar(10, "CHF")))
+    }
+
+    Scenario("compare whether currency type of Franc is equivalence or not") {
+      assert(new Money(amount = 10, "CHF").equals(new Franc(10, "CHF")))
+    }
   }
   /** Summary
    *
-   * I'm likely to get into the Big design changes,
-   *   started to change the small changes before it in front of it.
-   * ...
+   * For eliminating diff "times()" of tow subclass,
+   *   at first, ...
    */
 }
