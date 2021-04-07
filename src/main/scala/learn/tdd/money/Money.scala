@@ -16,7 +16,7 @@ class Money (
 }
 
 object Money {
-  def dollar(amount: Int): Money = new Dollar(amount, "USD")
+  def dollar(amount: Int): Money = new Money(amount, "USD")
 
-  def franc(amount: Int): Money = new Franc(amount, "CHF")
+  def franc(amount: Int): Money = new Money(amount, "CHF")
 }
