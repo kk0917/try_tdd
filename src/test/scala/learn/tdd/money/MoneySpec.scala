@@ -15,12 +15,12 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] Equivalence comparison with null
    * [ ] Equivalence comparison with another objects
    * [x] 5CHF * 2 = 10CHF
-   * [ ] Duplicate Dollar and Franc
+   * [x] Duplicate Dollar and Franc
    * [x] Generalization of equals
    * [x] Generarization of times
    * [x] Compare Dollar and Franc
    * [x] Concept of Money
-   * [ ] Delete Franc's test cases?
+   * [x] Delete Franc's test cases?
    */
   info("Multilateral currency")
 
@@ -43,7 +43,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
     Scenario("confirm other number to Dollar's amount field") {
 
       Given("Dollar is given 5 dollar")
-      val five: Dollar = new Dollar(5)
+      val five: Money = Money.dollar(5)
 
       When("conversion triple rate")
       Then("amount equals 10")
@@ -60,43 +60,8 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(Money.dollar(5).equals(Money.dollar(6)) === false)
     }
 
-    Scenario("Confirm that Franc instances are equivalence") {
-      assert(Money.franc(5).equals(Money.franc(5)) === true)
-    }
-
-    Scenario("Confirm that Franc instances are not equivalence") {
-      assert(Money.franc(5).equals(Money.franc(6)) === false)
-    }
-
     Scenario("Confirm that Franc instance and Dollar is not equivalence") {
       assert(Money.franc(5).equals(Money.dollar(5)) === false)
-    }
-  }
-
-  Feature("Currency rate conversion by Franc side") {
-    Scenario("User conversion Franc to Dollar") {
-      /** There're four compile errors
-       * [x] No Franc class
-       * [x] No Constructor
-       * [x] No times method
-       * [x] No amount field
-       */
-      Given("Franc is given 5 franc")
-      val five: Franc = new Franc(5)
-
-      When("conversion Double rate")
-      Then("amount equals 10")
-      assert(new Franc(10).equals(five.times(2)))
-    }
-
-    Scenario("confirm other number to Franc's amount field") {
-
-      Given("Franc is given 5 dollar")
-      val five: Franc = new Franc(5)
-
-      When("conversion triple rate")
-      Then("amount equals 10")
-      assert(new Franc(15).equals(five.times(3)))
     }
   }
 
@@ -114,18 +79,11 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       Then("currency Franc's type match")
       assert("CHF" === Money.franc(1).currency())
     }
-
-    Scenario("compare whether currency type of Dollar is equivalence or not") {
-      assert(new Money(amount = 10, "CHF").equals(new Dollar(10, "CHF")))
-    }
-
-    Scenario("compare whether currency type of Franc is equivalence or not") {
-      assert(new Money(amount = 10, "CHF").equals(new Franc(10, "CHF")))
-    }
   }
   /** Summary
    *
-   * For eliminating diff "times()" of tow subclass,
-   *   at first, ...
+   * kept decreasing the feature of subclases,
+   *   and I finally replaced the all features of subclasses to superclass!
+   * ...
    */
 }
