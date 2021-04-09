@@ -4,8 +4,11 @@ import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.GivenWhenThen
 
 class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
-  /** TODO:
+  /** New TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
+   * [ ] $5 + $5 = $10
+   */
+  /** TODO:
    * [x] $5 * 2 = $10
    * [x] change amount state to private
    * [x] What to do with Dollar's side effect?
@@ -78,6 +81,20 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       When("")
       Then("currency Franc's type match")
       assert("CHF" === Money.franc(1).currency())
+    }
+  }
+
+  Feature("test simple addition") {
+    Scenario("") {
+      Given("")
+      When("")
+      Then("")
+      val five: Money     = Money.dollar(5)
+      val sum: Expression = five.plus(five)
+      val bank: Bank      = new Bank()
+      val reduced: Money  = bank.reduce(sum, "USD")
+
+      assert(Money.dollar(10) == reduced)
     }
   }
   /** Summary

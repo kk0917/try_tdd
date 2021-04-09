@@ -3,9 +3,11 @@ package learn.tdd.money
 class Money (
   protected val amount: Int,
   protected val currencyType: String
-) {
+) extends Expression {
 
   def times(multiplier: Int): Money = new Money(amount * multiplier, currencyType)
+
+  def plus(addend: Money): Expression = new Money(amount + addend.amount, currency())
 
   def currency(): String = currencyType
 
