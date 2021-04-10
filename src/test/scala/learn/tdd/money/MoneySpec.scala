@@ -94,13 +94,16 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       val bank: Bank      = new Bank()
       val reduced: Money  = bank.reduce(sum, "USD")
 
-      assert(Money.dollar(10) == reduced)
+      assert(Money.dollar(10).equals(reduced))
     }
   }
   /** Summary
    *
-   * kept decreasing the feature of subclases,
-   *   and I finally replaced the all features of subclasses to superclass!
-   * ...
+   * Separated the big tests and make the small tests that can see the progress.
+   * Thought deeply about the metaphor for calculating from now.
+   * Rewritten the previous tests by using the new metaphor.
+   * Progressed quickly until can be compiled.
+   * Have enjoyed the refactoring for directing to real implement,
+   *    feel nervous a little
    */
 }
