@@ -7,7 +7,7 @@ class Money (
 
   def times(multiplier: Int): Money = new Money(amount * multiplier, currencyType)
 
-  def plus(addend: Money): Expression = new Money(amount + addend.amount, currencyType)
+  def plus(addend: Money): Expression = new Sum(this, addend)
 
   def currency(): String = currencyType
 

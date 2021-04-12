@@ -7,6 +7,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   /** New TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
    * [ ] $5 + $5 = $10
+   * [ ] $5 + $5 returns Money
    */
   /** TODO:
    * [x] $5 * 2 = $10
@@ -85,7 +86,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
 
   Feature("test simple addition") {
-    Scenario("") {
+    Scenario("aaa") {
       Given("")
       When("")
       Then("")
@@ -95,6 +96,18 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       val reduced: Money  = bank.reduce(sum, "USD")
 
       assert(Money.dollar(10).equals(reduced))
+    }
+
+    Scenario("bbb") {
+      Given("")
+      When("")
+      Then("")
+      val five: Money = Money.dollar(5)
+      val result: Expression = five.plus(five)
+      val sum: Sum = result.asInstanceOf[Sum]
+
+      assert(five == sum.augend)
+      assert(five == sum.addend)
     }
   }
   /** Summary
