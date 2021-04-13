@@ -86,10 +86,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
 
   Feature("test simple addition") {
-    Scenario("aaa") {
-      Given("")
-      When("")
-      Then("")
+    Scenario("case1") {
       val five: Money     = Money.dollar(5)
       val sum: Expression = five.plus(five)
       val bank: Bank      = new Bank()
@@ -98,16 +95,23 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(Money.dollar(10).equals(reduced))
     }
 
-    Scenario("bbb") {
-      Given("")
-      When("")
-      Then("")
+    Scenario("case2") {
       val five: Money = Money.dollar(5)
       val result: Expression = five.plus(five)
       val sum: Sum = result.asInstanceOf[Sum]
 
       assert(five == sum.augend)
       assert(five == sum.addend)
+    }
+  }
+
+  Feature("Reduce sum") {
+    Scenario("case1") {
+      val sum: Expression = new Sum(Money.dollar(3), Money.dollar(4))
+      val bank: Bank      = new Bank()
+      val result: Money   = bank.reduce(sum, "USD")
+
+      assert(Money.dollar(7) ==  result)
     }
   }
   /** Summary
