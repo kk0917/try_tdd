@@ -7,6 +7,7 @@ class Bank {
     amount
   }
   /** Noticed stingking quickly about the following two points
-   * 1. Casted. 
+   * 1. Casted. Actually It must operate whatever Expressiong type is
+   * 2. Accessed to Sum's field. Moreover, accessed the field of it.
    */
 }
