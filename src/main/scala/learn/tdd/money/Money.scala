@@ -7,6 +7,8 @@ class Money (
 
   def times(multiplier: Int): Money = new Money(amount * multiplier, currencyType)
 
+  def plus(addend: Money): Money = new Money(amount + addend.amount, currencyType)
+
   def currency(): String = currencyType
 
   def equals(obj: Money): Boolean = {
