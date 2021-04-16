@@ -77,7 +77,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert("USD" === Money.dollar(1).currency())
     }
 
-    Scenario("match currency type of Franc") {
+    Scenario("match currency type of Franc") { 
       Given("")
       When("")
       Then("currency Franc's type match")
