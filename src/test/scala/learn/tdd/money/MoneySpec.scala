@@ -77,7 +77,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert("USD" === Money.dollar(1).currency())
     }
 
-    Scenario("match currency type of Franc") { 
+    Scenario("match currency type of Franc") {
       Given("")
       When("")
       Then("currency Franc's type match")
@@ -90,15 +90,18 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       Given("")
       When("")
       Then("")
-      val sum: Money = Money.dollar(5).plus(Money.dollar(5))
+      val five: Money     = Money.dollar(5)
+      val sum: Expression = five.plus(five)
+      val bank: Bank      = new Bank()
+      val reduced: Money  = bank.reduce(sum,"USD")
 
-      assert(Money.dollar(10) == sum)
+      assert(Money.dollar(10).equals(reduced))
     }
   }
   /** Summary
    *
-   * kept decreasing the feature of subclases,
-   *   and I finally replaced the all features of subclasses to superclass!
+   * Separated big tests and created small tests that be able to see progress statuses.
+   *
    * ...
    */
 }
