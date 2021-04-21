@@ -9,6 +9,8 @@ class Money(
 
   def plus(addend: Money): Expression = new Sum(Money.this, addend)
 
+  def reduce(to: String): Money = this
+
   def currency(): String = currencyType
 
   def equals(obj: Money): Boolean = {

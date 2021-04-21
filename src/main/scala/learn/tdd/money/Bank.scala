@@ -3,10 +3,9 @@ package learn.tdd.money
 class Bank {
   def reduce(source: Expression, to: String): Money = {
     source match {
-      case money: Money =>
-        money
+      case source: Money => source.asInstanceOf[Money].reduce(to)
       case _ =>
-        val sum: Sum = source.asInstanceOf[Sum]
+        val sum = source.asInstanceOf[Sum]
         sum.reduce(to)
     }
   }
