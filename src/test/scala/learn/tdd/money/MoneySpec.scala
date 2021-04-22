@@ -8,7 +8,9 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] $5 + 10CHF = $10 (when rate is 2:1)
    * [ ] $5 + $5 = $10
    * [ ] $5 + $5 returns Money
-   * [ ] Bank.reduce(Money)
+   * [x] Bank.reduce(Money)
+   * [ ] Change Money and convert it
+   * [ ] Reduce(Bank, String)
    */
   /** TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
@@ -116,8 +118,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
-   * Separated big tests and created small tests that be able to see progress statuses.
-   *
+   * Not Remove duplicated codes done, so din't check the target field of TODO list
    * ...
    */
 }
