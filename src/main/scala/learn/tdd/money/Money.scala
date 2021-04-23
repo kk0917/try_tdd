@@ -9,7 +9,7 @@ class Money(
 
   def plus(addend: Money): Expression = new Sum(Money.this, addend)
 
-  override def reduce(to: String): Money = this
+  override def reduce(to: String): Money = if (currencyType.equals("CHF" && to.equals("USD")) to.equals("USD")
 
   def currency(): String = currencyType
 

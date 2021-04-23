@@ -116,6 +116,16 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(Money.dollar(1).equals(result) === true)
     }
   }
+
+  Feature("1.14") {
+    Scenario("Recuce Money Different Currency") {
+      val bank: Bank = new Bank()
+      bank.addRate("CHF", "USD", 2)
+      val result: Money = bank.reduce(Money.franc(2), 2)
+
+      assert(Money.dollar(1).equals(result) === true)
+    }
+  }
   /** Summary
    *
    * Not Remove duplicated codes done, so din't check the target field of TODO list
