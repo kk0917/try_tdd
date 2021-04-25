@@ -9,11 +9,10 @@ class Money(
 
   def plus(addend: Money): Expression = new Sum(Money.this, addend)
 
-  override def reduce(to: String): Money = {
-    val rate: Int =
-      if (currencyType.equals("CHF") && to.equals("USD")) 2 else 1
+  override def reduce(bank: Bank, to: String): Money = {
+    val rate: Int = bank.rate(currencyType, to)
 
-      new Money(amount / rate, to)
+    new Money(amount / rate, to)
   }
 
   def currency(): String = currencyType
