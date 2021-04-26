@@ -118,13 +118,17 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
 
   Feature("1.14") {
-    Scenario("Recuce Money Different Currency") {
+    Scenario("Reduce Money Different Currency") {
       val bank: Bank = new Bank()
       bank.addRate("CHF", "USD", 2)
       val result: Money = bank.reduce(Money.franc(2), "USD")
 
       assert(Money.dollar(1).equals(result) === true)
     }
+
+//    Scenario("Array Equals") {
+//      assert((new Object {"abc"}).equals(new Object {"abc"}) === true)
+//    }
   }
   /** Summary
    *
