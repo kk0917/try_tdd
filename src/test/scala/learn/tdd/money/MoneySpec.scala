@@ -126,9 +126,9 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(Money.dollar(1).equals(result) === true)
     }
 
-//    Scenario("Array Equals") {
-//      assert((new Object {"abc"}).equals(new Object {"abc"}) === true)
-//    }
+    Scenario("Identity Rate") {
+      assert((1, new Bank().rate("USD", "USD")) === true)
+    }
   }
   /** Summary
    *
