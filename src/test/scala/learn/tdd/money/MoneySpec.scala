@@ -6,11 +6,11 @@ import org.scalatest.GivenWhenThen
 class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   /** new TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1)
-   * [ ] $5 + $5 = $10
+   * [x] $5 + $5 = $10
    * [ ] $5 + $5 returns Money
    * [x] Bank.reduce(Money)
-   * [ ] Change Money and convert it
-   * [ ] Reduce(Bank, String)
+   * [x] Change Money and convert it
+   * [x] Reduce(Bank, String)
    */
   /** TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
