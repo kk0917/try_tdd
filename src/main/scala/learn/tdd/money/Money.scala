@@ -9,7 +9,11 @@ class Money(
 
   def plus(addend: Money): Expression = new Sum(Money.this, addend)
 
-  override def reduce(to: String): Money = this
+  override def reduce(bank: Bank, to: String): Money = {
+    val rate: Int = bank.rate(currencyType, to)
+
+    new Money(amount / rate, to)
+  }
 
   def currency(): String = currencyType
 
