@@ -1,7 +1,7 @@
 package learn.tdd.money
 
 class Money(
-  val amount: Int,
+  protected val amount: Int,
   protected val currencyType: String
 ) extends Expression {
 
@@ -9,7 +9,7 @@ class Money(
 
   def plus(addend: Money): Expression = new Sum(Money.this, addend)
 
-  override def reduce(bank: Bank, to: String): Money = {
+  def reduce(bank: Bank, to: String): Money = {
     val rate: Int = bank.rate(currencyType, to)
 
     new Money(amount / rate, to)

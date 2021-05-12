@@ -133,8 +133,8 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
 
   Feature("1.15") {
     Scenario("Mixed Addition") {
-      val fiveBucks: Expression = Money.dollar(5)
-      val tenFrancs: Expression = Money.franc(10)
+      val fiveBucks: Money = Money.dollar(5)
+      val tenFrancs: Money = Money.franc(10)
       val bank: Bank = new Bank()
 
       bank.addRate("CHF", "USD", 2)
