@@ -140,7 +140,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       bank.addRate("CHF", "USD", 2)
       val result: Money = bank.reduce(fiveBucks.plus(tenFrancs), "USD")
 
-      assert(Money.dollar(10) === result)
+      assert(Money.dollar(10) == result)
     }
   }
   /** Summary

@@ -1,7 +1,9 @@
 package learn.tdd.money
 
+import scala.util.Try
+
 class Money(
-  protected val amount: Int,
+  val amount: Int, // TODO: add protected modifier, and resolved compile error into Sum.scala
   protected val currencyType: String
 ) extends Expression {
 
@@ -12,7 +14,7 @@ class Money(
   def reduce(bank: Bank, to: String): Money = {
     val rate: Int = bank.rate(currencyType, to)
 
-    new Money(amount / rate, to)
+    new Money(Try(amount / rate).getOrElse(0), to)
   }
 
   def currency(): String = currencyType
