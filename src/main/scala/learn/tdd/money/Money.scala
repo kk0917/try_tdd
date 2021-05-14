@@ -7,9 +7,9 @@ class Money(
   protected val currencyType: String
 ) extends Expression {
 
-  def times(multiplier: Int): Money = new Money(amount * multiplier, currencyType)
+  def times(multiplier: Int): Expression = new Money(amount * multiplier, currencyType)
 
-  def plus(addend: Money): Expression = new Sum(Money.this, addend)
+  def plus(addend: Expression): Expression = new Sum(Money.this, addend)
 
   def reduce(bank: Bank, to: String): Money = {
     val rate: Int = bank.rate(currencyType, to)

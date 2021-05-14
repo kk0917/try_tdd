@@ -5,12 +5,14 @@ import org.scalatest.GivenWhenThen
 
 class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   /** new TODO:
-   * [ ] $5 + 10CHF = $10 (when rate is 2:1)
+   * [x] $5 + 10CHF = $10 (when rate is 2:1)
    * [x] $5 + $5 = $10
    * [ ] $5 + $5 returns Money
    * [x] Bank.reduce(Money)
    * [x] Change Money and convert it
    * [x] Reduce(Bank, String)
+   * [ ] Sum.plus
+   * [ ] Expression.times
    */
   /** TODO:
    * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
@@ -133,8 +135,8 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
 
   Feature("1.15") {
     Scenario("Mixed Addition") {
-      val fiveBucks: Money = Money.dollar(5)
-      val tenFrancs: Money = Money.franc(10)
+      val fiveBucks: Expression = Money.dollar(5)
+      val tenFrancs: Expression = Money.franc(10)
       val bank: Bank = new Bank()
 
       bank.addRate("CHF", "USD", 2)
