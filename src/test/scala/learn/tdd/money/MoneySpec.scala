@@ -122,6 +122,21 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
 //      assert(Money.dollar(10) == result)
 //    }
   }
+
+  Feature("1.16") {
+    Scenario("Sum Plus Money") {
+      val fiveBucks: Expression = Money.dollar(5)
+      val tenFrancs: Expression = Money.franc(10)
+
+      val bank: Bank = new Bank()
+      bank.addRate("CHF", "USD", 2)
+
+      val sum: Expression = new Sum(fiveBucks, tenFrancs).plus(fiveBucks)
+      val result: Money = bank.reduce(sum, "USD")
+
+      assert(Money.dollar(15) == result)
+    }
+  }
   /** Summary
    *
    * ...
