@@ -23,12 +23,6 @@ import org.scalatest.flatspec.AnyFlatSpec
 
 class MoneyTest extends AnyFlatSpec {
 
-  /** There are 4 errors of compile..
-   *  [x] No Dollar class.
-   *  [x] No Constructor.
-   *  [x] No times Method.
-   *  [x] No amount Field.
-   */
   val five: Money = Money.dollar(5)
 
   "Dollar.times function" should "multiple * amount = expected value 10" in {
@@ -56,12 +50,6 @@ class MoneyTest extends AnyFlatSpec {
     assert(Money.franc(5).isEquiv(Money.dollar(5)) === false)
   }
 
-  /** There are 4 errors of compile..
-   *  [x] No Franc class.
-   *  [x] No Constructor.
-   *  [x] No times Method.
-   *  [x] No amount Field.
-   */
   val cinq: Money = Money.franc(5) // five is cinq in French
 
   "Franc.times function" should "multiple * amount = expected value 10" in {
