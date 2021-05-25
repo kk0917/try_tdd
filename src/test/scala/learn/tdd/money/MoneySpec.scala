@@ -14,34 +14,10 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [ ] Sum.plus
    * [ ] Expression.times
    */
-  /** TODO:
-   * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
-   * [x] $5 * 2 = $10
-   * [x] change amount state to private
-   * [x] What to do with Dollar's side effect?
-   * [ ] What to do with Money's rounding?
-   * [x] equals()
-   * [ ] hashCode()
-   * [ ] Equivalence comparison with null
-   * [ ] Equivalence comparison with another objects
-   * [x] 5CHF * 2 = 10CHF
-   * [x] Duplicate Dollar and Franc
-   * [x] Generalization of equals
-   * [x] Generarization of times
-   * [x] Compare Dollar and Franc
-   * [x] Concept of Money
-   * [x] Delete Franc's test cases?
-   */
   info("Multilateral currency")
 
   Feature("Currency rate conversion by Dollar side") {
     Scenario("User conversion Dollar to Franc") {
-      /** There're four compile errors
-       * [x] No Dollar class
-       * [x] No Constructor
-       * [x] No times method
-       * [x] No amount field
-       */
       Given("Dollar is given 5 dollar")
       val five: Money = Money.dollar(5)
 
