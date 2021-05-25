@@ -5,41 +5,19 @@ import org.scalatest.GivenWhenThen
 
 class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   /** new TODO:
-   * [ ] $5 + 10CHF = $10 (when rate is 2:1)
+   * [x] $5 + 10CHF = $10 (when rate is 2:1)
    * [x] $5 + $5 = $10
    * [ ] $5 + $5 returns Money
    * [x] Bank.reduce(Money)
    * [x] Change Money and convert it
    * [x] Reduce(Bank, String)
-   */
-  /** TODO:
-   * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
-   * [x] $5 * 2 = $10
-   * [x] change amount state to private
-   * [x] What to do with Dollar's side effect?
-   * [ ] What to do with Money's rounding?
-   * [x] equals()
-   * [ ] hashCode()
-   * [ ] Equivalence comparison with null
-   * [ ] Equivalence comparison with another objects
-   * [x] 5CHF * 2 = 10CHF
-   * [x] Duplicate Dollar and Franc
-   * [x] Generalization of equals
-   * [x] Generarization of times
-   * [x] Compare Dollar and Franc
-   * [x] Concept of Money
-   * [x] Delete Franc's test cases?
+   * [ ] Sum.plus
+   * [ ] Expression.times
    */
   info("Multilateral currency")
 
   Feature("Currency rate conversion by Dollar side") {
     Scenario("User conversion Dollar to Franc") {
-      /** There're four compile errors
-       * [x] No Dollar class
-       * [x] No Constructor
-       * [x] No times method
-       * [x] No amount field
-       */
       Given("Dollar is given 5 dollar")
       val five: Money = Money.dollar(5)
 
@@ -118,7 +96,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
 
   Feature("1.14") {
-//    Scenario("Reduce Money Different Currency") { // TODO: fix
+//    Scenario("Reduce Money Different Currency") { // TODO: fix failed tests
 //      val bank: Bank = new Bank()
 //      bank.addRate("CHF", "USD", 2)
 //      val result: Money = bank.reduce(Money.franc(2), "USD")
@@ -130,11 +108,22 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(1 == new Bank().rate("USD", "USD"))
     }
   }
+
+  Feature("1.15") {
+//    Scenario("Mixed Addition") { // TODO: fix failed tests
+//      val fiveBucks: Expression = Money.dollar(5)
+//      val tenFrancs: Expression = Money.franc(10)
+//
+//      val bank: Bank = new Bank()
+//
+//      bank.addRate("CHF", "USD", 2)
+//      val result: Money = bank.reduce(fiveBucks.plus(tenFrancs), "USD")
+//
+//      assert(Money.dollar(10) == result)
+//    }
+  }
   /** Summary
    *
-   * Added parameters expected to be needed quickly.
    * ...
-   * Comitted mistakes in refactoring, but added tests that reenact the problem,
-   *   so this development are steadily improving.
    */
 }

@@ -1,18 +1,20 @@
 package learn.tdd.money
 
+import scala.util.Try
+
 class Money(
-  val amount: Int,
+  val amount: Int, // TODO: add protected modifier, and resolved compile error into Sum.scala
   protected val currencyType: String
 ) extends Expression {
 
-  def times(multiplier: Int): Money = new Money(amount * multiplier, currencyType)
+  def times(multiplier: Int): Expression = new Money(amount * multiplier, currencyType)
 
-  def plus(addend: Money): Expression = new Sum(Money.this, addend)
+  def plus(addend: Expression): Expression = new Sum(Money.this, addend)
 
-  override def reduce(bank: Bank, to: String): Money = {
+  def reduce(bank: Bank, to: String): Money = {
     val rate: Int = bank.rate(currencyType, to)
 
-    new Money(amount / rate, to)
+    new Money(Try(amount / rate).getOrElse(0), to)
   }
 
   def currency(): String = currencyType
