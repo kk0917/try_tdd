@@ -11,7 +11,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [x] Bank.reduce(Money)
    * [x] Change Money and convert it
    * [x] Reduce(Bank, String)
-   * [ ] Sum.plus
+   * [x] Sum.plus
    * [ ] Expression.times
    */
   info("Multilateral currency")
