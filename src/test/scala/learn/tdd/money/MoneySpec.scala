@@ -12,7 +12,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
    * [x] Change Money and convert it
    * [x] Reduce(Bank, String)
    * [x] Sum.plus
-   * [ ] Expression.times
+   * [x] Expression.times
    */
   info("Multilateral currency")
 
@@ -135,6 +135,19 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       val result: Money = bank.reduce(sum, "USD")
 
       assert(Money.dollar(15) == result)
+    }
+
+    Scenario("Sum Times") {
+      val fiveBucks: Expression = Money.dollar(5)
+      val tenFrancs: Expression = Money.franc(10)
+
+      val bank: Bank = new Bank()
+      bank.addRate("CHF", "USD", 2)
+
+      val sum: Expression = new Sum(fiveBucks, tenFrancs).times(2)
+      val result: Money   = bank.reduce(sum, "USD")
+
+      assert(Money.dollar(20) == result)
     }
   }
   /** Summary
