@@ -150,12 +150,12 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert(Money.dollar(20) == result)
     }
 
-    // TODO:
-//    Scenario("Plus Same Currency Return Money") {
-//      val sum: Expression = Money.dollar(1).plus(Money.dollar(1))
-//
-//      assert(sum.asInstanceOf[Money] == true)
-//    }
+    // TODO: Delete
+    Scenario("Plus Same Currency Return Money") {
+      val sum: Expression = Money.dollar(1).plus(Money.dollar(1))
+
+      assert(sum.isInstanceOf[Money])
+    }
   }
   /** Summary
    *
