@@ -7,12 +7,12 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   /** new TODO:
    * [x] $5 + 10CHF = $10 (when rate is 2:1)
    * [x] $5 + $5 = $10
-   * [ ] $5 + $5 returns Money
+   * [x] $5 + $5 returns Money
    * [x] Bank.reduce(Money)
    * [x] Change Money and convert it
    * [x] Reduce(Bank, String)
-   * [ ] Sum.plus
-   * [ ] Expression.times
+   * [x] Sum.plus
+   * [x] Expression.times
    */
   info("Multilateral currency")
 
@@ -122,8 +122,44 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
 //      assert(Money.dollar(10) == result)
 //    }
   }
+
+  Feature("1.16") {
+    Scenario("Sum Plus Money") {
+      val fiveBucks: Expression = Money.dollar(5)
+      val tenFrancs: Expression = Money.franc(10)
+
+      val bank: Bank = new Bank()
+      bank.addRate("CHF", "USD", 2)
+
+      val sum: Expression = new Sum(fiveBucks, tenFrancs).plus(fiveBucks)
+      val result: Money = bank.reduce(sum, "USD")
+
+      assert(Money.dollar(15) == result)
+    }
+
+    Scenario("Sum Times") {
+      val fiveBucks: Expression = Money.dollar(5)
+      val tenFrancs: Expression = Money.franc(10)
+
+      val bank: Bank = new Bank()
+      bank.addRate("CHF", "USD", 2)
+
+      val sum: Expression = new Sum(fiveBucks, tenFrancs).times(2)
+      val result: Money   = bank.reduce(sum, "USD")
+
+      assert(Money.dollar(20) == result)
+    }
+
+    // TODO: Delete
+    Scenario("Plus Same Currency Return Money") {
+      val sum: Expression = Money.dollar(1).plus(Money.dollar(1))
+
+      assert(sum.isInstanceOf[Money])
+    }
+  }
   /** Summary
    *
+   * Wrote tests thinking about the future reader.
    * ...
    */
 }
