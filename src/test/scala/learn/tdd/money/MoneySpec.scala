@@ -159,6 +159,7 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
   }
   /** Summary
    *
+   * Wrote tests thinking about the future reader.
    * ...
    */
 }
