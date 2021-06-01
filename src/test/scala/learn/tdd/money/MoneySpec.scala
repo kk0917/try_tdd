@@ -4,23 +4,9 @@ import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.GivenWhenThen
 
 class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
-  /** TODO:
-   * [ ] $5 + 10CHF = $10 (when rate is 2:1 between $ and CHF)
-   * [x] $5 * 2 = $10
-   * [x] change amount state to private
-   * [x] What to do with Dollar's side effect?
-   * [ ] What to do with Money's rounding?
-   * [x] equals()
-   * [ ] hashCode()
-   * [ ] Equivalence comparison with null
-   * [ ] Equivalence comparison with another objects
-   * [x] 5CHF * 2 = 10CHF
-   * [x] Duplicate Dollar and Franc
-   * [x] Generalization of equals
-   * [x] Generarization of times
-   * [x] Compare Dollar and Franc
-   * [x] Concept of Money
-   * [x] Delete Franc's test cases?
+  /** new TODO:
+   * [ ] $5 + 10CHF = $10 (when rate is 2:1)
+   * [ ] $5 + $5 = $10
    */
   info("Multilateral currency")
 
@@ -80,10 +66,24 @@ class MoneySpec extends AnyFeatureSpec with GivenWhenThen {
       assert("CHF" === Money.franc(1).currency())
     }
   }
+
+  Feature("Simple Addition") {
+    Scenario("") {
+      Given("")
+      When("")
+      Then("")
+      val five: Money     = Money.dollar(5)
+      val sum: Expression = five.plus(five)
+      val bank: Bank      = new Bank()
+      val reduced: Money  = bank.reduce(sum,"USD")
+
+      assert(Money.dollar(10).equals(reduced))
+    }
+  }
   /** Summary
    *
-   * kept decreasing the feature of subclases,
-   *   and I finally replaced the all features of subclasses to superclass!
+   * Separated big tests and created small tests that be able to see progress statuses.
+   *
    * ...
    */
 }
