@@ -19,6 +19,11 @@ class Money(
    */
   def times(multiplier: Int): Expression = new Money(amount * multiplier, currencyType)
 
+  /** 
+   *
+   * @param addend
+   * @return
+   */
   def plus(addend: Expression): Expression = new Sum(Money.this, addend)
 
   def reduce(bank: Bank, to: String): Money = {
